@@ -14,7 +14,7 @@
                         <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
                         <span class="mt-2 text-gray-500 font-semibold">${{ $product->price }}</span>
                     </div>
-                    <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data" class="flex justify-end">
+                    <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data" class="flex justify-center">
                         @csrf
                         <input type="hidden" value="{{ $product->id }}" name="id">
                         <input type="hidden" value="{{ $product->name }}" name="name">
@@ -23,8 +23,9 @@
                         <input type="hidden" value="1" name="quantity">
                         <button class="px-4 py-1 text-white text-sm bg-gray-900 rounded">Add To Cart</button>                                                
                     </form>
-                    <br>                
-                    <button type="button" onclick="redirectToProduct('{{ route('product', ['id' => $product->id, 'name' => $product->name, 'price' => $product->price, 'image' => $product->image]) }}')" class="px-4 py-1 text-white text-sm bg-gray-900 rounded">See Product</button>                    
+                    <br> 
+                    <button type="button" onclick="redirectToProduct('{{ route('product', ['id' => $product->id, 'name' => $product->name, 'price' => $product->price, 'image' => $product->image]) }}')" class="px-4 py-1 text-white text-sm bg-gray-900 rounded mx-auto">See Product</button>               
+                                       
                 </div>                
             </div>
             @endforeach
